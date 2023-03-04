@@ -79,6 +79,8 @@ void* Receive(void *arg){
 void* CaptureFunction(void *arg){
 	CascadeClassifier face_cascade;
         VideoCapture cap(0);
+        //    cap.set(CAP_PROP_FRAME_WIDTH, 640);//Setting the width of the video 
+//     cap.set(CAP_PROP_FRAME_HEIGHT, 480);
         Mat frame;
 //    char* window_name = "Face Recognition Application";
         string face_cascade_name = "haarcascade_frontalface_alt2.xml";
