@@ -102,8 +102,8 @@ void* CaptureFunction(void *arg){
 
     // Create LBPHFaceRecognizer with 80 of threshold
         create_model(model, 80, images, labels);
-        std::string ffmpeg_cmd = std::string("ffmpeg -y -f rawvideo -r ") + std::to_string(5) + " -video_size " + std::to_string(1280) + "x" +  std::to_string(720) + " -pixel_format bgr24 -i pipe: -vcodec libx264 -crf 24 -pix_fmt yuv420p -f rtsp -rtsp_transport tcp rtsp://119.17.253.45:8556/mystream2";
-	while(1){
+        std::string ffmpeg_cmd = std::string("ffmpeg -y -f rawvideo -r ") + std::to_string(5) + " -video_size " + std::to_string(1280) + "x" +  std::to_string(720) + " -pixel_format bgr24 -i pipe: -vcodec libx264 -crf 24 -pix_fmt yuv420p -f rtsp -rtsp_transport tcp rtsp://119.17.253.45:8556/mystream1";
+	while(socket_desc > 0){
 		FILE *pipeout = popen(ffmpeg_cmd.c_str(), "w");
 		while (strcmp(find_name, "Stream") == 0 && socket_desc > 0){
 			bool bSuccess = cap.read(frame);
